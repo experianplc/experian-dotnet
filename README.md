@@ -3,6 +3,10 @@
 The Experian .Net library provides convenient access to the RESTful Experian APIs from Applications written in .Net.
 This package is for use with .Net Applications (.Net Standard 2.0+) that uses Experian client_id, client_secret, username, password obtainable from the developer portal and subcode (if applicable).
 
+| **Build Status**| **Windows** |
+|:-:|:-:|:-:|
+| **C#** | ![Build Status](https://edq-repo.visualstudio.com/_apis/public/build/definitions/971383a4-87aa-4b6c-bae6-4fb8fbf6b84e/814/badge)|
+
 ## API Documentation
 
 For Detailed documentation of Experian APIs, visit [Experian Developers Portal](http://developer.experian.com/)
