@@ -40,8 +40,15 @@ The service client uses an underlying HttpClient that it can create itself or ca
 
 ### Authentication before Calling the API
 
-    var bizClient  = new ServiceClient();
-    var authResult = bizClient.SendAuthenticationRequestAsync(new AuthRequest(Username, Password), ClientId, ClientSecret, ServiceClient.OAuthSandboxUrl).Result;
+#### Api.Experian.Com
+
+Services on api.Experian.com such as Business Information Services require a Bearer token (in this case a OAuth Access token). This token can be obtained with the code below.
+
+```csharp
+    var serviceClient = new ServiceClient();
+    var authResult    = serviceClient.SendAuthenticationRequestAsync(new AuthRequest(Username, Password), ClientId, ClientSecret, ServiceClient.OAuthSandboxUrl).Result;
+```
+The ClientId, ClientSecret can be obtained from an App created in the developer.experian.com portal. The username and password are your credentials for the portal. The authenticated response returns the the access token, the token type (bearer), the time the token was created (in milliseconds from the Unix Time/Epoch UTC). It also gives you the time the token will expire and you need to get another one (you should write your re-authenticate logic based on this field rather than a fixed time period). 
 
 ### Example
 
@@ -65,12 +72,12 @@ namespace Experian.Api.Example
                                 Zip     = "10118",
                             };
 
-            ClientId      = "YOURCLIENTID";
-            ClientSecret  = "YOURCLIENTSECRET";
-            Username      = "YOURUSERNAME";
-            Password      = "YOURPASSWORD";
+            ClientId         = "YOURCLIENTID";
+            ClientSecret     = "YOURCLIENTSECRET";
+            Username         = "YOURUSERNAME";
+            Password         = "YOURPASSWORD";
 
-            var client    = new ServiceClient();
+            var client       = new ServiceClient();
             var authResponse = client.SendAuthenticationRequestAsync(new AuthRequest(Username, Password), ClientId, ClientSecret, ServiceClient.OAuthSandboxUrl).Result;
             var response     = client.PostReverseAddressAsync(Environ.Sandbox, authResponse, request).Result;
             Console.WriteLine(response.Success);
@@ -141,10 +148,10 @@ For IntegrationTests on a build server environment variables can be used instead
 ```csharp
     var request = new BusinessRequest()
     {
-        Bin     = "700880075",
-        Subcode = "0517614",
+        Bin                = "700880075",
+        Subcode            = "0517614",
         CollectionsSummary = true,
-        CollectionsDetail = true,
+        CollectionsDetail  = true,
     };
 
     var response = serviceClient.PostCollectionsAsync(Environment.Sandbox, authResponse, request);
@@ -155,11 +162,11 @@ For IntegrationTests on a build server environment variables can be used instead
 ```csharp
             var request = new CorporateLinkageRequest()
             {
-                Bin = "700513485",
-                Subcode = "0517614",
-                ModelCode = "000224",
+                Bin                     = "700513485",
+                Subcode                 = "0517614",
+                ModelCode               = "000224",
                 CorporateLinkagePartial = true,
-                CorporateLinkageFull = true,
+                CorporateLinkageFull    = true,
             };
 
             var response = serviceClient.PostCorporateLinkageAsync(Environ.Sandbox, authResponse, request);
@@ -170,8 +177,8 @@ For IntegrationTests on a build server environment variables can be used instead
 ```csharp
             var request = new CorporateRegistrationsRequest()
             {
-                Bin = "700000001",
-                Subcode = "0517614",
+                Bin                     = "700000001",
+                Subcode                 = "0517614",
                 StatusDescriptionDetail = true,
             };
 
@@ -183,7 +190,7 @@ For IntegrationTests on a build server environment variables can be used instead
 ```csharp
             var request = new CreditStatusRequest()
             {
-                Bin = "807205801",
+                Bin     = "807205801",
                 Subcode = "0517614",
             };
 
@@ -207,7 +214,7 @@ For IntegrationTests on a build server environment variables can be used instead
 ```csharp
             var request = new HeadersRequest()
             {
-                Bin = "807205801",
+                Bin     = "807205801",
                 Subcode = "0517614",
             };
 
@@ -219,10 +226,10 @@ For IntegrationTests on a build server environment variables can be used instead
 ```csharp
             var request = new JudgmentsRequest()
             {
-                Bin = "700969989",
-                Subcode = "0517614",
+                Bin             = "700969989",
+                Subcode         = "0517614",
                 JudgmentSummary = true,
-                JudgmentDetail = true,
+                JudgmentDetail  = true,
              };
 
             var response = serviceClient.PostJudgmentsAsync(Environ.Sandbox, authResponse, request);
@@ -234,10 +241,10 @@ For IntegrationTests on a build server environment variables can be used instead
 
             var request = new LegalFilingsCollectionsSummariesRequest()
             {
-                Bin = "800914632",
-                Subcode     = "0517614",
+                Bin                            = "800914632",
+                Subcode                        = "0517614",
                 LegalFilingsCollectionsSummary = true,
-                LegalFilingsSummary = true
+                LegalFilingsSummary            = true
             };
 
             var response = serviceClient.PostLegalCollectionSummariesAsync(Environ.Sandbox, authResponse, request);
@@ -247,10 +254,10 @@ For IntegrationTests on a build server environment variables can be used instead
 ```csharp
             var request = new LiensRequest()
             {
-                    Bin = "701000078",
-                    Subcode = "0517614",
+                    Bin         = "701000078",
+                    Subcode     = "0517614",
                     LienSummary = true,
-                    LienDetail = true
+                    LienDetail  = true
             };
 
             var response = serviceClient.PostLiensAsync(Environ.Sandbox, authResponse, request);
@@ -289,12 +296,12 @@ For IntegrationTests on a build server environment variables can be used instead
 ```csharp
             var request = new TradesRequest()
             {
-                Bin                 = "700000001",
-                Subcode             = "0517614",
-                TradePaymentSummary = true,
-                TradePaymentTotals  = true,
+                Bin                     = "700000001",
+                Subcode                 = "0517614",
+                TradePaymentSummary     = true,
+                TradePaymentTotals      = true,
                 TradePaymentExperiences = true,
-                TradePaymentTrends  = true,
+                TradePaymentTrends      = true,
             };
 
             var response = serviceClient.PostTradesAsync(Environ.Sandbox, authResponse, request);
@@ -305,10 +312,10 @@ For IntegrationTests on a build server environment variables can be used instead
 ```csharp
             var request = new UccFilingsRequest()
             {
-                Bin = "700969989",
-                Subcode             = "0517614",
-                UccFilingsSummary   = true,
-                UccFilingsDetail    = true,
+                Bin               = "700969989",
+                Subcode           = "0517614",
+                UccFilingsSummary = true,
+                UccFilingsDetail  = true,
             };
 
             var response = serviceClient.PostUccFilingsAsync(Environ.Sandbox, authResponse, request);
@@ -358,15 +365,15 @@ For IntegrationTests on a build server environment variables can be used instead
 ```csharp
             var request = new SearchRequest()
             {
-                Name = "Experian",
-                City = "Costa Mesa",
-                State = "CA",
-                Subcode = "0517614",
-                Street = "475 ANTON BLVD",
-                Zip = "92626",
-                Phone = "9495673800",
-                TaxId = "176970333",
-                Geo = true,
+                Name     = "Experian",
+                City     = "Costa Mesa",
+                State    = "CA",
+                Subcode  = "0517614",
+                Street   = "475 ANTON BLVD",
+                Zip      = "92626",
+                Phone    = "9495673800",
+                TaxId    = "176970333",
+                Geo      = true,
                 Comments = "testing",
             };
 
