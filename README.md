@@ -30,7 +30,7 @@ Please note that this code is in preview. This specifically means the following:
 1. .Net Core SDK 2.1.4
 2. Git Client
 
-## Pacakge Usage
+## Package Usage
 
 ServiceClient is the main component. It is a thin wrapper to HttpClient that adds methods to call our Authentication API and the Service Endpoint. By including a Service collection namespace (e.g. using Experian.Api.Client.Bis) you will also bring in that service collections request/response models and helper extension methods for ServiceClient.
 
