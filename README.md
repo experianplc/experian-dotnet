@@ -343,8 +343,8 @@ For IntegrationTests on a build server environment variables can be used instead
             {
                 Bin = "796744203",
                 Subcode = "0517614",
-				ModelCode = "000224",
-				Comments = "This is a test"
+                ModelCode = "000224",
+                Comments = "This is a test"
             };
 
             var response = serviceClient.PostPremierProfilesAsync(Environ.Sandbox, authResponse, request);
