@@ -1,6 +1,6 @@
 namespace Experian.Api.Client.Bis
 {
-public sealed class FraudShieldsReponse : BisResponse
+public sealed class FraudShieldsResponse : BisResponse
 {
     public FraudShieldsResult Results { get; set; }
 }
