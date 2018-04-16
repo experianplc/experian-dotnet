@@ -185,10 +185,10 @@
             return await serviceClient.SendRequestAsync<RiskDashboardsRequest, RiskDashboardsReponse>(url, authToken, request).ConfigureAwait(false);
         }
 
-        public static async Task<ScoresReponse>                 PostScoresAsync(this ServiceClient serviceClient, Environ env, AuthResult authToken, BisRequest request)
+        public static async Task<ScoresReponse>                 PostScoresAsync(this ServiceClient serviceClient, Environ env, AuthResult authToken, ScoresRequest request)
         {
             var url = ServiceUri[(env, Scores)];
-            return await serviceClient.SendRequestAsync<BisRequest, ScoresReponse>(url, authToken, request).ConfigureAwait(false);
+            return await serviceClient.SendRequestAsync<ScoresRequest, ScoresReponse>(url, authToken, request).ConfigureAwait(false);
         }
 
         public static async Task<SearchReponse>                 PostSearchAsync(this ServiceClient serviceClient, Environ env, AuthResult authToken, SearchRequest request)
