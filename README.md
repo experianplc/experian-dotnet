@@ -279,7 +279,7 @@ For IntegrationTests on a build server environment variables can be used instead
 ##### Scores
 
 ```csharp
-        var request = new ScoresSearchRequest()
+        var request = new ScoresRequest()
         {
             Bin = "700000001",
             Subcode         = "0517614",
@@ -288,7 +288,7 @@ For IntegrationTests on a build server environment variables can be used instead
             CommercialScore = true,
         };
 
-        var response = serviceClient.PostScoresSearchAsync(Environment.Sandbox, authResponse, request);
+        var response = serviceClient.PostScoresAsync(Environment.Sandbox, authResponse, request);
 ```
 
 ##### Trades
