@@ -1,6 +1,6 @@
 namespace Experian.Api.Client.Bis
 {
-    public sealed class CorporateRegistrationsReponse : BisResponse
+    public sealed class CorporateRegistrationsResponse : BisResponse
     {
         public CorporateRegistrationsResult Results { get; set; }
     }
