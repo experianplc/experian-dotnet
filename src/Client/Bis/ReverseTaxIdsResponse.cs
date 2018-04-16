@@ -4,7 +4,7 @@ namespace Experian.Api.Client.Bis
     using System.Collections.Generic;
     using Newtonsoft.Json;
 
-public sealed class ReverseTaxIdsReponse : BisResponse
+public sealed class ReverseTaxIdsResponse : BisResponse
 {
         [JsonProperty(PropertyName = "reverseTaxIds")]
         public List<ReverseTaxIdsItemsResult> Results { get; set; }
