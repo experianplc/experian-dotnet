@@ -12,7 +12,7 @@ namespace Experian.Api.Client.Bis
 
         public int PercentileRanking { get; set; }
 
-        public int RecommendedCreditLimitAmount { get; set; }
+        public int? RecommendedCreditLimitAmount { get; set; }
 
         public RiskClassResult RiskClass { get; set; }
     }
