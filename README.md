@@ -89,7 +89,11 @@ namespace Experian.Api.Example
 
 ### Developer Secrets
 
-To prevent the included integration tests and the benchmarking console app containing secrets the .Net User Secrets tool is use. You only need to restore the packages (this is typically done as part of or prior to the build). Then from the individual projects folder simply type:
+Our integration tests require confidential information to operation. To prevent this information being publically disclosed in the Git repo we inject these values at runtime. We use two different techniques based on the use case
+
+#### Local development
+
+Locally we use the .Net User Secrets tool. The tool will be available after a package restore. Then from within the source folder simply type:
 
 ```bash
 dotnet user-secrets set ClientId YOURCLIENTID
@@ -97,10 +101,11 @@ dotnet user-secrets set ClientSecret YOURCLIENTSECRET
 dotnet user-secrets set Username YOURUSERNAME
 dotnet user-secrets set Password YOURPASSWORD
 ```
-
 This will set up your local system to hold these secrets without checking them into source control.
 
-For IntegrationTests on a build server environment variables can be used instead.
+#### Running tests on a Build server
+
+For Integration Tests on a build server, the variables can be injected via Environment variables can be used instead.
 
 ## BIS Service usage
 
