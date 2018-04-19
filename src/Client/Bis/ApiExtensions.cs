@@ -48,6 +48,7 @@
             Judgments,
             LegalCollectionSummaries,
             Liens,
+            PremierProfiles,
             ReverseAddresses,
             ReversePhones,
             ReverseTaxIds,
