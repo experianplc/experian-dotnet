@@ -42,7 +42,7 @@ The service client uses an underlying HttpClient that it can create itself or ca
 
 Experian API's require a TLS 1.2 connection. For the latest versions of .Net Framework and .Net Core this (or higher) is the default. However older versions of .Net will require an additional line of configuration in order to negotiate a connection to the server correctly:
 ```csharp
-ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls
+ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 ```
 This line needs to execute anywhere before you POST the request to the server. Note that versions of .Net released earlier than 2012 did not contain TLS 1.2 support.
 
