@@ -1,3 +1,5 @@
+using Experian.Api.Client.Bis;
+
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("Experian.Api.Client.Tests")]
 namespace Experian.Api.Client
 {
@@ -52,6 +54,7 @@ namespace Experian.Api.Client
         }
 
         public async Task<TResponse> SendRequestAsync<TRequest, TResponse>(string uri, AuthResult authToken, TRequest content)
+            where TResponse : new()
         {
             var request                   = new HttpRequestMessage(HttpMethod.Post, uri);
             request.Headers.Authorization = new AuthenticationHeaderValue(authToken.TokenType, authToken.AccessToken);
@@ -61,6 +64,7 @@ namespace Experian.Api.Client
         }
 
         public async Task<TResponse> SendRequestAsync<TResponse>(HttpRequestMessage request)
+            where TResponse : new()
         {
             using (var response = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false))
             {
@@ -82,7 +86,21 @@ namespace Experian.Api.Client
                 using (var streamReader = new StreamReader(stream))
                 using (var jsonReader   = new JsonTextReader(streamReader))
                 {
-                    return serializer.Deserialize<TResponse>(jsonReader);
+                    try
+                    {
+                        return serializer.Deserialize<TResponse>(jsonReader);
+                    }
+                    catch (Exception)
+                    {
+                        var responseType = typeof(TResponse);
+
+                        if (responseType.BaseType == typeof(BisResponse))
+                        {
+                            return new TResponse();
+                        }
+
+                        throw;
+                    }
                 }
             }
         }
