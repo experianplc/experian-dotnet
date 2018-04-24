@@ -107,10 +107,10 @@
             return await serviceClient.SendRequestAsync<CorporateRegistrationsRequest, CorporateRegistrationsResponse>(url, authToken, request).ConfigureAwait(false);
         }
 
-        public static async Task<CollectionsResponse>            PostCollectionsAsync(this ServiceClient serviceClient, Environ env, AuthResult authToken, CollectionsRequest request)
+        public static async Task<CollectionsResponse>            PostCollectionsAsync(this ServiceClient serviceClient, Environ env, AuthResult authToken, BisRequest request)
         {
             var url = ServiceUri[(env, Collections)];
-            return await serviceClient.SendRequestAsync<CollectionsRequest, CollectionsResponse>(url, authToken, request).ConfigureAwait(false);
+            return await serviceClient.SendRequestAsync<BisRequest, CollectionsResponse>(url, authToken, request).ConfigureAwait(false);
         }
 
         public static async Task<CorporateLinkageResponse>       PostCorporateLinkageAsync(this ServiceClient serviceClient, Environ env, AuthResult authToken, CorporateLinkageRequest request)
