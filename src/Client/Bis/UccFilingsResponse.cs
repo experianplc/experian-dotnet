@@ -2,6 +2,6 @@ namespace Experian.Api.Client.Bis
 {
     public sealed class UccFilingsResponse : BisResponse
     {
-        public UccFilingsSummaryResult Results { get; set; }
+        public UccFilingsResult Results { get; set; }
     }
 }
