@@ -22,7 +22,6 @@
         private const string Judgments                = "judgments";
         private const string LegalCollectionSummaries = "legalcollectionsummaries";
         private const string Liens                    = "liens";
-        private const string PremierProfiles          = "reports/premierprofiles";
         private const string ReverseAddresses         = "reverseaddresses";
         private const string ReversePhones            = "reversephones";
         private const string ReverseTaxIds            = "reversetaxids";
@@ -48,7 +47,6 @@
             Judgments,
             LegalCollectionSummaries,
             Liens,
-            PremierProfiles,
             ReverseAddresses,
             ReversePhones,
             ReverseTaxIds,
@@ -215,12 +213,6 @@
         {
             var url = ServiceUri[(env, ScoresSearch)];
             return await serviceClient.SendRequestAsync<BisRequest, ScoresSearchResponse>(url, authToken, request).ConfigureAwait(false);
-        }
-
-        public static async Task<PremierProfilesResponse> PostPremierProfilesAsync(this ServiceClient serviceClient, Environ env, AuthResult authToken, PremierProfilesRequest request)
-        {
-            var url = ServiceUri[(env, PremierProfiles)];
-            return await serviceClient.SendRequestAsync<PremierProfilesRequest, PremierProfilesResponse>(url, authToken, request).ConfigureAwait(false);
         }
     }
 }

@@ -349,20 +349,6 @@ For Integration Tests on a build server, the variables can be injected via Envir
             var response = serviceClient.PostReverseAddressAsync(Environ.Sandbox, authResponse, request);
 ```
 
-##### Premier Profiles
-
-```csharp
-            var request = new PremierProfilesRequest()
-            {
-                Bin = "796744203",
-                Subcode = "0517614",
-                ModelCode = "000224",
-                Comments = "This is a test"
-            };
-
-            var response = serviceClient.PostPremierProfilesAsync(Environ.Sandbox, authResponse, request);
-```
-
 ##### Reverse Phones
 
 ```csharp
