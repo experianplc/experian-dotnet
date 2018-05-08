@@ -7,7 +7,7 @@
     public static class ApiExtensions
     {
         internal const string BisStaging              = "https://stg-us-api.experian.com/businessinformation/businesses/v1/";
-        internal const string BisProduction           = "https://prod-us-api.experian.com/businessinformation/businesses/v1/";
+        internal const string BisProduction           = "https://us-api.experian.com/businessinformation/businesses/v1/";
         internal const string BisSandbox              = "https://sandbox-us-api.experian.com/businessinformation/businesses/v1/";
 
         private const string Bankruptcies             = "bankruptcies";

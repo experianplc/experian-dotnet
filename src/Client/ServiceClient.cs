@@ -17,7 +17,7 @@ namespace Experian.Api.Client
     public sealed class ServiceClient
     {
         public const string OAuthStagingUrl    = "https://stg-us-api.experian.com/oauth2/v1/token";
-        public const string OAuthProductionUrl = "https://prod-us-api.experian.com/oauth2/v1/token";
+        public const string OAuthProductionUrl = "https://us-api.experian.com/oauth2/v1/token";
         public const string OAuthSandboxUrl    = "https://sandbox-us-api.experian.com/oauth2/v1/token";
 
         private const string JsonMediaType     = "application/json";
