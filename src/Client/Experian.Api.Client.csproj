@@ -12,7 +12,7 @@
     <PackageProjectUrl>https://github.com/experianplc/experian-dotnet</PackageProjectUrl>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/36166164</PackageIconUrl>
     <Description>The Experian .Net library provides convenient access to the RESTful Experian APIs from Applications written in .Net. This package is for use with .Net Applications (.Net Standard 2.0+).</Description>
-    <Copyright>Experian Plc</Copyright>
+    <Copyright>Experian Plc 2018</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
