@@ -3,9 +3,10 @@
 The Experian .Net library provides convenient access to the RESTful Experian APIs from Applications written in .Net.
 This package is for use with .Net Applications (.Net Standard 2.0+) that uses Experian client_id, client_secret, username, password obtainable from the developer portal and subcode (if applicable).
 
-| **Build Status**| **Windows** |
+| **Stage**| **Status** |
 |-|-|
-| **C#** | ![Build Status](https://edq-repo.visualstudio.com/_apis/public/build/definitions/971383a4-87aa-4b6c-bae6-4fb8fbf6b84e/814/badge)|
+| **C# CI** | ![Build Status](https://edq-repo.visualstudio.com/_apis/public/build/definitions/971383a4-87aa-4b6c-bae6-4fb8fbf6b84e/814/badge)|
+| **Nuget Publish** | ![Deployment Status](https://edq-repo.vsrm.visualstudio.com/_apis/public/Release/badge/971383a4-87aa-4b6c-bae6-4fb8fbf6b84e/42/81) |
 
 ## API Documentation
 
@@ -13,17 +14,14 @@ For Detailed documentation of Experian APIs, visit [Experian Developers Portal](
 
 ## .Net Setup & Development
 
-Please note that this code is in preview. This specifically means the following:
-
-* While a Nuget package is planned, currently the code is only available as a .Net Standard Library.
-* The Nuget package will only contain the Experian.Api.Client library.
-* The Test libraries and Benchmark console app are for testing/informational purposes only.
-* Currently only Business Information Services are included.
+## Getting started
 
 ### Prerequisites to use
 
 1. .Net Standard 2.0 (.Net Framework 4.6.1, .Net Core 2.0)
 2. Nuget 3.x+
+3. Download the package: Experian.Api.Client via your favourite packet manager 
+4. Alternatively you can download directly from: https://www.nuget.org/packages/Experian.Api.Client/
 
 ### Prerequisites to Build
 
