@@ -1,19 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <CodeAnalysisRuleSet>..\Experian.ruleset</CodeAnalysisRuleSet>
-    <Authors>Lex Mitchell</Authors>
-    <Company>Experian Plc</Company>
-    <PackageLicenseUrl>https://github.com/experianplc/experian-dotnet/blob/master/LICENSE</PackageLicenseUrl>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <RepositoryUrl>https://github.com/experianplc/experian-dotnet.git</RepositoryUrl>
-    <RepositoryType>Git</RepositoryType>
-    <PackageProjectUrl>https://github.com/experianplc/experian-dotnet</PackageProjectUrl>
-    <PackageIconUrl>https://avatars3.githubusercontent.com/u/36166164</PackageIconUrl>
-    <Copyright>Experian Plc</Copyright>
-    <Description>The Experian .Net library provides convenient access to the RESTful Experian APIs from Applications written in .Net. This package is for use with .Net Applications (.Net Standard 2.0+).</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -23,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
   </ItemGroup>
 
