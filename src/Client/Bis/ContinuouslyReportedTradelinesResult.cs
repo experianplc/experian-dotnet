@@ -1,6 +1,6 @@
 namespace Experian.Api.Client.Bis
 {
-public sealed class ContinuouslyReportedTradelinesResult : TradelinesResult
-{
-}
+    public sealed class ContinuouslyReportedTradelinesResult : TradelinesResult
+    {
+    }
 }

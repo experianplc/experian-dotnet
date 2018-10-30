@@ -1,6 +1,5 @@
 namespace Experian.Api.Client.Tests
 {
-    using System;
     using Xunit;
 
     public sealed class BisTests

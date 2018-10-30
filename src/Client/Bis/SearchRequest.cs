@@ -1,7 +1,6 @@
 namespace Experian.Api.Client.Bis
 {
     using System;
-    using Experian.Api.Client;
     using Newtonsoft.Json;
 
     public sealed class SearchRequest : BisRequest

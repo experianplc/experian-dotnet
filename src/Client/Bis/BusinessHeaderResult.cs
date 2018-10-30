@@ -1,6 +1,6 @@
 namespace Experian.Api.Client.Bis
 {
-using System.Collections.Generic;
+    using System.Collections.Generic;
 
     public sealed class BusinessHeaderResult
     {

@@ -1,6 +1,6 @@
 namespace Experian.Api.Client.Bis
 {
-public sealed class FraudShieldsRequest : BisRequest
-{
-}
+    public sealed class FraudShieldsRequest : BisRequest
+    {
+    }
 }

@@ -3,11 +3,11 @@ namespace Experian.Api.Client.Bis
     using System;
     using Newtonsoft.Json;
 
-public sealed class ReversePhonesRequest : BisRequest
-{
-    public string Phone { get; set; }
+    public sealed class ReversePhonesRequest : BisRequest
+    {
+        public string Phone { get; set; }
 
-    [JsonIgnore]
+        [JsonIgnore]
         public override string Bin
         {
             get
