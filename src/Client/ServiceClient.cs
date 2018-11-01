@@ -51,10 +51,25 @@ namespace Experian.Api.Client
             return await SendRequestAsync<AuthResult>(request).ConfigureAwait(false);
         }
 
-        public async Task<TResponse> SendRequestAsync<TRequest, TResponse>(string uri, AuthResult authToken, TRequest content)
+        public async Task<TResponse> SendRequestAsync<TRequest, THeader, TResponse>(string uri, string authToken, THeader headers, TRequest content)
+            where THeader : IHeader
         {
             var request                   = new HttpRequestMessage(HttpMethod.Post, uri);
-            request.Headers.Authorization = new AuthenticationHeaderValue(authToken.TokenType, authToken.AccessToken);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Auth-Token", authToken);
+            foreach (string key in headers.Headers.Keys)
+            {
+                request.Headers.Add(key, headers.Headers[key]);
+            }
+
+            request.Content               = CreateUtf8JsonContent(content);
+
+            return await SendRequestAsync<TResponse>(request).ConfigureAwait(false);
+        }
+
+        public async Task<TResponse> SendRequestAsync<TRequest, TResponse>(string uri, IAuthToken authToken, TRequest content)
+        {
+            var request                   = new HttpRequestMessage(HttpMethod.Post, uri);
+            request.Headers.Authorization = new AuthenticationHeaderValue(authToken.TokenType, authToken.Value);
             request.Content               = CreateUtf8JsonContent(content);
 
             return await SendRequestAsync<TResponse>(request).ConfigureAwait(false);
