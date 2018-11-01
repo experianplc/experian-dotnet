@@ -1,6 +1,6 @@
 namespace Experian.Api.Client.Bis
 {
-public sealed class CreditStatusRequest : BisRequest
-{
-}
+    public sealed class CreditStatusRequest : BisRequest
+    {
+    }
 }

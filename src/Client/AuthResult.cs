@@ -3,7 +3,7 @@
     using System;
     using Newtonsoft.Json;
 
-    public sealed class AuthResult
+    public sealed class AuthResult : IAuthToken
     {
         internal static readonly DateTime EpochUtc = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         internal static readonly long     EpochMS  = 62135596800000;
@@ -24,6 +24,12 @@
         public long ExpiresAt
         {
             get { return IssuedAt + ExpiresIn; }
+        }
+
+        [JsonIgnore]
+        public string Value
+        {
+            get { return this.AccessToken; }
         }
 
         [JsonIgnore]

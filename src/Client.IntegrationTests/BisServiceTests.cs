@@ -1,6 +1,5 @@
 namespace Experian.Api.Client.IntegrationTests
 {
-    using System;
     using Experian.Api.Client.Bis;
     using Xunit;
 

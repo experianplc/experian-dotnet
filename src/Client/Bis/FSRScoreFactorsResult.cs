@@ -1,6 +1,6 @@
 namespace Experian.Api.Client.Bis
 {
-public sealed class FSRScoreFactorsResult : CodeAndDefinitionResult
-{
-}
+    public sealed class FSRScoreFactorsResult : CodeAndDefinitionResult
+    {
+    }
 }

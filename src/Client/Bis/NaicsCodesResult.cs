@@ -1,6 +1,6 @@
 namespace Experian.Api.Client.Bis
 {
-public sealed class NaicsCodesResult : CodeAndDefinitionResult
-{
-}
+    public sealed class NaicsCodesResult : CodeAndDefinitionResult
+    {
+    }
 }
